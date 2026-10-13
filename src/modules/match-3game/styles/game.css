@@ -1,0 +1,228 @@
+/* game.css —— 连连看游戏样式 */
+
+.game {
+  --tile-size: 48px;
+  --tile-gap: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 16px;
+  min-height: 100svh;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+.game__title {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.game__status {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.game__status-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.game__status-value {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.game__board-wrap {
+  position: relative;
+  padding: var(--tile-gap);
+}
+
+.game__board {
+  display: grid;
+  gap: var(--tile-gap);
+}
+
+.tile {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #333333;
+  font-size: 26px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background 0.12s ease, border-color 0.12s ease;
+  user-select: none;
+}
+
+.tile:hover:not(.tile--removed) {
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+}
+
+.tile--selected {
+  border-color: #1890ff;
+  background: #e6f7ff;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.4), 0 4px 10px rgba(0, 0, 0, 0.22);
+}
+
+.tile--hint {
+  border-color: #faad14;
+  background: #fffbe6;
+  box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.5), 0 4px 10px rgba(0, 0, 0, 0.22);
+  animation: hint-pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes hint-pulse {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.12); }
+}
+
+.tile--removed {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tile--removing {
+  animation: tile-vanish 0.32s ease forwards;
+}
+
+@keyframes tile-vanish {
+  to {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+.game__connect-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.game__connect-line {
+  fill: none;
+  stroke: #ffe838;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
+  animation: connect-draw 0.45s ease forwards;
+}
+
+@keyframes connect-draw {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.game__controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game__btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.game__btn:hover {
+  background: rgba(255, 255, 255, 0.38);
+  transform: translateY(-1px);
+}
+
+.game__btn:active {
+  transform: translateY(0);
+}
+
+.game__btn--primary {
+  background: #1890ff;
+}
+
+.game__btn--primary:hover {
+  background: #40a9ff;
+}
+
+.game__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: overlay-in 0.25s ease;
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.game__modal {
+  background: #fff;
+  color: #333;
+  border-radius: 16px;
+  padding: 32px 40px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  max-width: 360px;
+}
+
+.game__modal-title {
+  font-size: 24px;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.game__modal-text {
+  margin: 0 0 20px;
+  color: #666;
+  font-size: 15px;
+}
+
+@media (max-width: 560px) {
+  .game {
+    --tile-size: 34px;
+    --tile-gap: 4px;
+    padding: 16px 8px;
+  }
+  .game__title { font-size: 24px; }
+  .game__status { gap: 14px; font-size: 14px; padding: 8px 14px; }
+  .tile { font-size: 20px; }
+}

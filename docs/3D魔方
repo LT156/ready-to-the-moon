@@ -1,0 +1,32 @@
+正在后台开启受信任宝塔面板ip证书...
+Looking in indexes: https://mirrors.tencent.com/pypi/simple
+Requirement already satisfied: asn1crypto==1.5.1 in /www/server/panel/pyenv/lib/python3.7/site-packages (1.5.1)
+Requirement already satisfied: cbor2==5.4.6 in /www/server/panel/pyenv/lib/python3.7/site-packages (5.4.6)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Starting Bt-Panel....   done
+Starting Bt-Tasks... Bt-Tasks (pid 16300 16321) already running
+username: tinoc3xo
+Stopping Bt-Tasks...    done
+Stopping Bt-Panel...    done
+Starting Bt-Panel....   done
+Starting Bt-Tasks... Bt-Tasks (pid 20884 20895) already running
+正在检查受信宝塔面板ip证书开启状态...
+受信ip证书申请失败，exit code=1
+转为使用默认自签证书，后续可手动在面板设置中重新使用Let's encrypt申请ip证书
+安装基础网站流量统计程序...
+安装基础网站流量统计程序完成
+==================================================================
+Congratulations! Installed successfully!
+
+========================面板账户登录信息==========================
+
+ 【云服务器】请在安全组放行 26756 端口
+ 外网ipv4面板地址: https://45.40.247.84:26756/16800189
+ 内网面板地址:     https://10.6.0.9:26756/16800189
+ username: tinoc3xo
+ password: ba722bf2
+
+ 浏览器访问以下链接，添加宝塔客服
+ https://www.bt.cn/new/wechat_customer
+==================================================================
+Time consumed: 55 seconds!
