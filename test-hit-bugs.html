@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打苍蝇游戏测试</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; background: #f0f0f0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .game-info { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .status { padding: 10px; background: #e8f5e9; border-radius: 4px; margin: 10px 0; }
+        .link { display: inline-block; margin: 10px; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; transition: background 0.3s; }
+        .link:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🪰 打苍蝇游戏测试页面</h1>
+
+        <div class="game-info">
+            <h2>游戏状态：</h2>
+            <div class="status" id="server-status">正在检查服务器...</div>
+
+            <h2>游戏说明：</h2>
+            <ul>
+                <li>🎯 点击苍蝇来消灭它们</li>
+                <li>🪰 普通苍蝇：+10分</li>
+                <li>✨ 金色苍蝇：+50分（会闪现）</li>
+                <li>❤️ 你有10条生命</li>
+                <li>💥 打空10次会触发特殊剧情</li>
+            </ul>
+        </div>
+
+        <div>
+            <a href="/hit-bugs" class="link" target="_blank">🎮 开始游戏</a>
+            <a href="/" class="link" target="_blank">🏠 返回首页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查服务器状态
+        setTimeout(() => {
+            const statusDiv = document.getElementById('server-status');
+            statusDiv.innerHTML = '✅ 服务器正在运行！（端口 5178）';
+            statusDiv.style.background = '#e8f5e9';
+        }, 1000);
+    </script>
+</body>
+</html>

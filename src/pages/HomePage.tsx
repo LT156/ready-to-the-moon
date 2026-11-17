@@ -7,6 +7,21 @@ const games = [
     desc: '消除相同图案，路径最多转折两次',
     path: '/match-3game',
   },
+  {
+    title: '🧊3D魔方',
+    desc: '旋转层归位，还原三阶魔方',
+    path: '/rubiks-cube',
+  },
+  {
+    title: '🪰打苍蝇',
+    desc: '点击苍蝇，别让它们烦人',
+    path: '/hit-bugs',
+  },
+  {
+    title: '⏳解密·平行时空',
+    desc: '翻找后台物件，集齐碎片推理舞台',
+    path: '/decrypt',
+  },
 ]
 
 export function HomePage() {
