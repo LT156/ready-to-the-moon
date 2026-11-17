@@ -13,11 +13,6 @@ const games = [
     path: '/rubiks-cube',
   },
   {
-    title: '🪰打苍蝇',
-    desc: '点击苍蝇，别让它们烦人',
-    path: '/hit-bugs',
-  },
-  {
     title: '⏳解密·平行时空',
     desc: '翻找后台物件，集齐碎片推理舞台',
     path: '/decrypt',
